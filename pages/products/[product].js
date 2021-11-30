@@ -5,10 +5,8 @@ import { getAllProductHandles, getProductByHandle } from '../../lib/shopify'
 export default function ProductPage({ product }) {
   return (
     <Container>
-      <section className=''>
-        <div className='mx-auto max-w-screen-lg px-5 py-8'>
-          <ProductContent product={product} />
-        </div>
+      <section className='mx-auto max-w-screen-lg px-5 py-8'>
+        <ProductContent product={product} />
       </section>
     </Container>
   )
