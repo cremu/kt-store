@@ -7,13 +7,13 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ['Circular Book', ...fontFamily.sans],
-      circularLight: ['Circular Light', 'sans-serif'],
+      sans: ['Circular Light', ...fontFamily.sans],
+      circularBook: ['Circular Book', 'sans-serif'],
       permanentMarker: ['PermanentMarker', 'sans-serif']
     },
     screens: {
-      // @media (min-width: 475px)
-      'xs': '520px',
+      // @media (min-width: 520px)
+      'xs': '420px',
       // @media (min-width: 640px)
       'sm': '640px',
       // @media (min-width: 768px)

@@ -16,6 +16,7 @@ export default function ProductForm({ product }) {
       id: variant.node.id,
       variantTitle: variant.node.title,
       variantPrice: variant.node.priceV2.amount,
+      variantCompareAtPrice: variant.node.variantCompareAtPriceV2,
       variantImage: variant.node.image?.originalSrc,
       variantQuantity: 1,
       options: allOptions
@@ -38,10 +39,19 @@ export default function ProductForm({ product }) {
   console.log(selectedOptions)
 
   return (
-    <div className='rounded-md bg-yellow-50 shadow-lg flex flex-col w-full'>
-      <h2 className='text-2xl text-indigo-500'>{product.title}</h2>
-      <p>{product.description}</p>
-      <span className='pb-6'>{formatter.format(product.variants.edges[0].node.priceV2.amount)} kr.</span>
+    <div className='flex flex-col pt-4 md:pt-0 md:pl-4'>
+      <h2 className='font-circularBook text-3xl text-black tracking-tight'>{product.title}</h2>
+      <p className='mt-2 text-lg'>{product.description}</p>
+      <p className='font-circularBook text-xl my-2'>
+        {product.variants.edges[0].node.compareAtPriceV2?.amount ? (
+          <span className='line-through text-gray-400 mr-2'>
+            {formatter.format(product.variants.edges[0].node.compareAtPriceV2.amount)} kr.
+          </span>
+        ) : (
+          ''
+        )}
+        {formatter.format(product.variants.edges[0].node.priceV2.amount)} kr.
+      </p>
       {product.options.map(({ name, values }) => (
         <ProductOptions
           key={`key-${name}`}

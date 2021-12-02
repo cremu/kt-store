@@ -4,7 +4,7 @@ import Container from '../components/Container'
 
 export default function Home({ products }) {
   return (
-    <Container isStickyNav>
+    <Container hasStickyNav>
       <section className='h-96 bg-gray-100'>
         <div className='max-w-screen-lg mx-auto px-5 py-8'>
           <h1 className='text-blue-800 text-6xl tracking-tighter'>Welcome to Krúttlegt</h1>
